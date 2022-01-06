@@ -25,6 +25,8 @@ gem 'rubyzip'
 gem 'active_storage-send_zip'
 gem 'net-smtp', require: false
 gem 'net-pop', require: false
+gem 'net-imap', require: false
+gem 'net-protocol', require: false
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
