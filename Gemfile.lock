@@ -215,6 +215,8 @@ GEM
 
 PLATFORMS
   arm64-darwin-20
+  ruby
+  x86_64-linux
 
 DEPENDENCIES
   active_storage-send_zip
