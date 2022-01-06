@@ -115,6 +115,10 @@ GEM
     minitest (5.15.0)
     msgpack (1.4.2)
     multi_xml (0.6.0)
+    net-pop (0.1.1)
+      digest
+      net-protocol
+      timeout
     net-protocol (0.1.2)
       io-wait
       timeout
@@ -235,6 +239,7 @@ DEPENDENCIES
   httparty
   jbuilder (~> 2.7)
   listen (~> 3.3)
+  net-pop
   net-smtp
   nokogiri
   pg
