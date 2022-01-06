@@ -1,0 +1,31 @@
+<h1>New logo</h1>
+
+<%= link_to "All logos", logos_path %>  <%= link_to "New logo request", new_logo_path %>  <%= link_to "Generating all logos", saves_path %>
+
+<br><br>
+
+Last logo asked : <%= Logo.last.company if Logo.all.count > 0 %>
+
+<br><br>
+
+<% if Logo.all.count == 0 %>
+
+  <%= form_tag({:controller => "logos", :action => "create_companies"}, :method => "post") do %>
+
+    <div class="field">
+      <%= text_field_tag :companies %><br>
+    </div>
+
+    <br>
+
+    <div class="actions">
+      <%= submit_tag "Go" %>
+    </div>
+
+  <% end %>
+
+<% else %>
+
+  <p>Veuillez <%= link_to "supprimer", logos_path %> les logos déjà générés avant d'en demander d'autres</p>
+
+<% end %>

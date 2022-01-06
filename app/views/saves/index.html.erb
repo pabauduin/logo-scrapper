@@ -1,0 +1,13 @@
+<h1>Generate logo</h1>
+
+<%= link_to "All logos", logos_path %>  <%= link_to "New logo request", new_logo_path %>  <%= link_to "Generating all logos", saves_path %>
+
+<br><br>
+
+Last logo asked : <%= Logo.last.company if Logo.all.count > 0 %>
+<br><br>
+
+<%= button_to "Generate !", action: "generating" %>
+
+
+<br><br>

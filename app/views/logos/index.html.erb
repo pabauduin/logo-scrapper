@@ -1,0 +1,26 @@
+<h1>Logos</h1>
+
+<%= link_to "All logos", logos_path %>  <%= link_to "New logo request", new_logo_path %>  <%= link_to "Generating all logos", saves_path %>
+
+<br><br>
+
+<%= button_to "Save all!", action: "saving" %><br>
+<%= button_to "Delete all!", action: "delete_all" %>
+
+<% if Logo.all.where(name: nil).count > 0 %>
+	<p>You have unsaved logos, please <%= link_to "generate", saves_path %> them before checking the list</p>
+<% end %>
+
+<table style="width:500px;">
+	<% @logos.each { |logo| %>
+		<% if !logo.name.nil? %>
+			<tr>
+				<td><%= logo.name %>.png</td>
+				<td><a href="<%= url_for(logo.image) %>" download><%= image_tag logo.image, style: "border-radius:50%; height:50px; width:50px; object-fit:contain; background-color:white;" %></a></td>
+				<td><%= link_to "Destroy", logo, id: logo.id, method: :delete %></td>
+			</tr>
+		<% end %>		
+	<% } %> 
+</table>
+
+<br><br>
