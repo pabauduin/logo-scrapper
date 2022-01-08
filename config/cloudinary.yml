@@ -1,0 +1,11 @@
+development: 
+  cloud_name: "duglcdwma"
+  api_key: "944689554461548"
+  api_secret: "Wspu31-NNqTdZ8RiJ4sRKRSk3O4"
+  secure: true
+
+production:
+  cloud_name: "duglcdwma"
+  api_key: "944689554461548"
+  api_secret: "Wspu31-NNqTdZ8RiJ4sRKRSk3O4"
+  secure: true
