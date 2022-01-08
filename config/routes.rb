@@ -3,14 +3,8 @@ Rails.application.routes.draw do
   resources :logos do
     collection do
       post :create_companies
-      post :download
-      post :saving
-      post :delete_all
-    end
-  end
-  resources :saves  do
-    collection do
-      post :generating
+      post :destroy_all
+      post :generate_logos
     end
   end
 

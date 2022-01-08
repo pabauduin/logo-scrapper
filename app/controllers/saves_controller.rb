@@ -32,16 +32,14 @@ class SavesController < ApplicationController
 		        	logo.name = gsub_logo.downcase
 		        	logo.save
 		        end
-		        puts "---"
-		        puts "---"
-		        puts logo.name
 		        if !HTTParty.get("https://logo.clearbit.com/#{gsub_logo}.com").response.to_s.include?("NotFound") && 
-		          url = "https://logo.clearbit.com/#{gsub_logo}.com"
-		          puts url
-		          puts "----"
-		          puts "----"
-		          url.reverse.split('/', 3).collect(&:reverse).reverse[2]
-		          logo.image.attach(io: URI.open(url)  , filename: "#{gsub_logo.downcase}.png")
+					url = "https://logo.clearbit.com/#{gsub_logo}.com"
+					puts url
+					puts "----"
+					puts "----"
+					url.reverse.split('/', 3).collect(&:reverse).reverse[2]
+					Cloudinary::Uploader.upload(url, :folder => "Logos",
+					public_id: gsub_logo, asset_id: gsub_logo, use_filename: true,  unique_filename: false)  
 		        end
 		        if HTTParty.get("https://logo.clearbit.com/#{gsub_logo}.com").response.to_s.include?("NotFound") 
 			        if HTTParty.get("https://logo.clearbit.com/#{gsub_logo}.fr").response.to_s.include?("NotFound") 
@@ -52,8 +50,8 @@ class SavesController < ApplicationController
 						puts "----"
 						puts "----"
 						url.reverse.split('/', 3).collect(&:reverse).reverse[2]
-						logo.image.attach(io: URI.open(url)  , filename: "#{gsub_logo.downcase}.png")
-
+						Cloudinary::Uploader.upload(url, :folder => "Logos",
+          				public_id: gsub_logo, asset_id: gsub_logo, use_filename: true,  unique_filename: false)
 			        end
 		        end
 	    	else

@@ -1,11 +1,15 @@
 <h1>Logos</h1>
 
-<%= link_to "All logos", logos_path %>  <%= link_to "New logo request", new_logo_path %>  <%= link_to "Generating all logos", saves_path %>
+<%= link_to "All logos", logos_path %>  <%= link_to "New logo request", new_logo_path %>
 
 <br><br>
 
-<%= button_to "Save all!", action: "saving" %><br>
-<%= button_to "Delete all!", action: "delete_all" %>
+<% if Logo.all.count > 0 %>
+
+<%= button_to "Save all!", Cloudinary::Utils.download_folder("Logos", options = {}) %><br>
+<%= button_to "Destroy all!", action: "destroy_all" %>
+
+<% end %>
 
 <% if Logo.all.where(name: nil).count > 0 %>
 	<p>You have unsaved logos, please <%= link_to "generate", saves_path %> them before checking the list</p>
@@ -16,7 +20,7 @@
 		<% if !logo.name.nil? %>
 			<tr>
 				<td><%= logo.name %>.png</td>
-				<td><a href="<%= url_for(logo.image) %>" download><%= image_tag logo.image, style: "border-radius:50%; height:50px; width:50px; object-fit:contain; background-color:white;" %></a></td>
+				<td><%= link_to cl_image_tag("Logos/#{logo.name}.png", style: "border-radius:50%; height:50px; width:50px; object-fit:contain; background-color:white;"), cl_image_path("Logos/netflix.png") %></td>
 				<td><%= link_to "Destroy", logo, id: logo.id, method: :delete %></td>
 			</tr>
 		<% end %>		
