@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  root 'logos#index'
+  root 'logos#index' if Logo.all.count > 0
+  root 'logos#new' if Logo.all.count == 0
   resources :logos do
     collection do
       post :create_companies

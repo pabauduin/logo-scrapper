@@ -13,3 +13,105 @@
  *= require_tree .
  *= require_self
  */
+
+body {
+    font-family: 'Be Vietnam Pro', sans-serif;
+    background-color:  #141a1f;
+    color:  #c2d8f4;
+    font-weight: 300;
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+body a {
+    color:  #ffcf70;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+body a:hover {
+    color: #fbdc9f;
+}
+
+h1 {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-weight:  800;
+}
+
+hr {
+    border:  1px solid #3b5068;
+    width:  100%;
+    margin: 10px 0;
+}
+
+.action-button {
+    background-color: #304053;
+    color:  white;
+    padding: 10px;
+    border: 0px;
+    border-radius: 5px;
+    cursor:  pointer;
+    min-width: 100px;
+    height: 40px;
+    font-weight: 500;
+}
+.action-button:hover {
+    background-color: #3b5068;
+}
+
+.action-button-destroy {
+    color:  white;
+    padding: 10px;
+    border: 0px;
+    border-radius: 5px;
+    cursor:  pointer;
+    background-color: #533030;
+    font-weight: 500;
+}
+
+.action-button-destroy:hover {
+    background-color: #603737;
+}
+
+.action-button-send {
+    background-color: #ffcf70;
+    color: #141a1f;
+    padding: 15px;
+    border: 0px;
+    border-radius: 5px;
+    cursor:  pointer;
+    font-weight: 800;
+    width: 160px;
+    font-size:  14px;
+}
+
+.action-button-send:hover {
+    background-color: #fbdc9f;
+}
+
+.card {
+    background-color:  #202934;
+    border-radius: 10px;
+    padding: 20px;
+    width: 550px;
+    display: flex;
+    flex-direction: column;
+}
+
+input#companies {
+    height: 30px;
+    padding: 10px;
+    border-radius: 5px;
+    width: 70%;
+    border:  0px;
+    background: #304053;
+    color: white;
+    margin:  10px 0 0 0;
+}
+
+input#companies::placeholder {
+    color: #7c98bb;
+}
+

@@ -1,30 +1,39 @@
-<h1>Logos</h1>
+<div class="card">
+	<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom:15px;flex-wrap: wrap;">
+		<div><h1>👩‍💻 Logo scrapper</h1></div>
 
-<%= link_to "All logos", logos_path %>  <%= link_to "New logo request", new_logo_path %>
+		<% if Logo.all.count > 0 %>
+			<div style="display:flex; flex-direction: row;">
+				<%= button_to "💾 Save all", Cloudinary::Utils.download_folder("Logos", options = {}),style: "margin-right:10px;", class: "action-button" %><br>
+				<%= button_to "🗑 Destroy all", destroy_all_logos_path, class: "action-button action-button-destroy" %>
+			</div>
+		<% end %>
 
-<br><br>
+	</div>
 
-<% if Logo.all.count > 0 %>
+	<div style="display:flex; flex-direction: row; margin: 10px 0 10px 0">
+		<%= link_to "All logos", logos_path, style: "margin-right:20px;" %>
+		<%= link_to "New logo request", new_logo_path %>
+	</div>
 
-<%= button_to "Save all!", Cloudinary::Utils.download_folder("Logos", options = {}) %><br>
-<%= button_to "Destroy all!", action: "destroy_all" %>
+	<hr>
 
-<% end %>
+	<% if Logo.all.count == 0 %>
+		<p>Nothing was found on your previous request, <div style="padding-top:3px;">OR you have not <%= link_to "generated", new_logo_path %> any logo.</p>
+	<% end %>
 
-<% if Logo.all.where(name: nil).count > 0 %>
-	<p>You have unsaved logos, please <%= link_to "generate", saves_path %> them before checking the list</p>
-<% end %>
-
-<table style="width:500px;">
 	<% @logos.each { |logo| %>
-		<% if !logo.name.nil? %>
-			<tr>
-				<td><%= logo.name %>.png</td>
-				<td><%= link_to cl_image_tag("Logos/#{logo.name}.png", style: "border-radius:50%; height:50px; width:50px; object-fit:contain; background-color:white;"), cl_image_path("Logos/netflix.png") %></td>
-				<td><%= link_to "Destroy", logo, id: logo.id, method: :delete %></td>
-			</tr>
-		<% end %>		
+		<div style="display:flex; align-items:center; justify-content: space-between; ">
+			<% if !logo.name.nil? %>
+				<div style="display:flex; align-items: center;">
+					<div><%= link_to cl_image_tag("Logos/#{logo.name}.png", style: "border-radius:50%; height:50px; margin-right:15px; width:50px; object-fit:contain; background-color:white; border: 2px solid #363e47;"), cl_image_path("Logos/netflix.png") %></div>
+					<div><%= logo.name %>.png</div>
+				</div>
+				<div><%= link_to "Destroy", logo, id: logo.id, method: :delete, style: "color: #f55" %></div>
+			<% end %>	
+		</div>
+		<hr>
 	<% } %> 
-</table>
+	
 
-<br><br>
+</div>
