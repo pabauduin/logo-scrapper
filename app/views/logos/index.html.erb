@@ -19,7 +19,7 @@
 	<hr>
 
 	<% if Logo.all.count == 0 %>
-		<p>Nothing was found on your previous request, <div style="padding-top:3px;">OR you have not <%= link_to "generated", new_logo_path %> any logo.</p>
+		<p>Nothing was found on your previous request, <div style="padding-top:3px;">OR you have not <%= link_to "requested", new_logo_path %> any logo.</p>
 	<% end %>
 
 	<% @logos.each { |logo| %>
