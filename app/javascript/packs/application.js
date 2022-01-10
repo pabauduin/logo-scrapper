@@ -14,3 +14,7 @@ import "channels"
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+
+document.getElementsByClassName("notice").display = "flex";
+
+document.getElementsByClassName("alert").display = "flex";

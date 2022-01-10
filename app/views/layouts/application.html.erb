@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>LogoScrapper</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -16,5 +16,7 @@
 
   <body>
     <%= yield %>
+    <p class="notice"><%= flash[:notice] %></p>
+    <p class="alert"><%= flash[:alert] %></p>
   </body>
 </html>

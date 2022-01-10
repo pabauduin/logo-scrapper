@@ -15,7 +15,6 @@ class LogosController < ApplicationController
     if logos.count > 0
       logos.each { |logo|
         Cloudinary::Uploader.destroy("Logos/#{logo.name}")
-        puts "logo destroyed"
         logo.destroy
       }
     end
@@ -23,15 +22,21 @@ class LogosController < ApplicationController
       Logo.create!(company: company)
     }
     generate
-    redirect_to logos_path
+    if logos.count > 0
+      redirect_to logos_path
+      flash[:notice] = ('✅ Your logos have been generated')
+    else
+      redirect_to new_logo_path
+      flash[:alert] = ('❌ No logo found in databases')
+    end
   end
 
   def destroy
     @logo = Logo.find(params[:id])
     Cloudinary::Uploader.destroy("Logos/#{@logo.name}")
     if @logo.destroy
-      puts "logo destroyed"
       redirect_to '/logos', :notice => "Your logo has been deleted"
+      flash[:notice] = ('✅ Your logo has been destroyed')
     else 
       puts "not destroyed"
     end
@@ -40,11 +45,11 @@ class LogosController < ApplicationController
   def destroy_all
     Logo.all.each { |logo|
       Cloudinary::Uploader.destroy("Logos/#{logo.name}")
-      puts "logo destroyed"
     }
     if Logo.destroy_all 
       puts "logos deleted"
       redirect_to '/logos', :notice => "Your logo has been deleted"
+      flash[:notice] = ('✅ All of your logos have been deleted')
     else 
       puts "not destroyed"
     end
