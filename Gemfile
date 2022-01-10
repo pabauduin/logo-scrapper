@@ -28,7 +28,6 @@ gem 'net-pop', require: false
 gem 'net-imap', require: false
 gem 'net-protocol', require: false
 gem 'cloudinary'
-gem 'jquery-rails'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

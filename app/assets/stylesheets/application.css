@@ -40,10 +40,46 @@ h1 {
     font-weight:  800;
 }
 
+@media (max-width:  555px) {
+    h1 {
+        margin-bottom: 10px;
+    }
+}
+ 
 hr {
     border:  1px solid #3b5068;
     width:  100%;
     margin: 10px 0;
+}
+
+input, textarea {
+    -webkit-appearance: none;
+}
+
+.notice {
+    position: absolute;
+    right: 30px;
+    bottom: 30px;
+    max-width: 310px;
+    background-color: transparent;
+    border-radius: 10px;
+    min-height: 30px;
+    padding: 20px;
+    line-height: 30px;
+    color: #81eca6;
+}
+
+.alert {
+    position: absolute;
+    right: 30px;
+    bottom: 30px;
+    max-width: 310px;
+    background-color: transparent;
+    border-radius: 10px;
+    min-height: 30px;
+    padding: 20px;
+    line-height: 30px;
+    color: #f55;
 }
 
 .action-button {
@@ -83,8 +119,8 @@ hr {
     border-radius: 5px;
     cursor:  pointer;
     font-weight: 800;
-    width: 160px;
-    font-size:  14px;
+    width: 190px;
+    font-size:  16px;
 }
 
 .action-button-send:hover {
@@ -109,6 +145,7 @@ input#companies {
     background: #304053;
     color: white;
     margin:  10px 0 0 0;
+    font-size:  16px;
 }
 
 input#companies::placeholder {

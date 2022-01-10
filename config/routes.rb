@@ -6,6 +6,7 @@ Rails.application.routes.draw do
       post :create_companies
       post :destroy_all
       post :generate_logos
+      post :destroy
     end
   end
 
